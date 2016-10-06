@@ -99,8 +99,8 @@ if (evt.keyCode == 27) {
 };
 
 function toggleFullScreen() {
-  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    // alternative standard method
-      (!document.mozFullScreen && !document.webkitIsFullScreen)) {               // current working methods
+  if ((document.fullScreenElement && document.fullScreenElement !== null) || 
+      (!document.mozFullScreen && !document.webkitIsFullScreen)) {              
     if (document.documentElement.requestFullScreen) {
       document.documentElement.requestFullScreen();
     } else if (document.documentElement.mozRequestFullScreen) {
