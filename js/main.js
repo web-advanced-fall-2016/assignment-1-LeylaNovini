@@ -1,103 +1,56 @@
-let pup1 = document.getElementById("pic1");
-let pup2 = document.getElementById("pic2");
-let pup3 = document.getElementById("pic3");
-let pup4 = document.getElementById("pic4");
+//modal leyla novini, 2016
+//open modal from click on image
+let cuties = document.querySelectorAll('.cute .picture');
 
-function pupClicked1(evt) {
-	let p = document.getElementById("mode1");
-	p.style.display = "inline-block";
+for(let i=0; i < cuties.length; i++){
+  cuties[i].addEventListener("click", openPup, false);
 }
 
-function pupClicked2(evt) {
-	let p = document.getElementById("mode2");
-	p.style.display = "inline-block";
+function openPup(evnt){
+  let pup = this.parentNode.parentNode.querySelector('.modal');
+  pup.style.display = "inline-block";
 }
 
-function pupClicked3(evt) {
-	let p = document.getElementById("mode3");
-	p.style.display = "inline-block";
+//close modal with x in corner of modal
+let close = document.querySelectorAll('.cute .close');
+
+for(let i=0; i < close.length; i++) {
+  close[i].addEventListener("click", closePup, false);
 }
 
-function pupClicked4(evt) {
-	let p = document.getElementById("mode4");
-	p.style.display = "inline-block";
+function closePup(evnt){
+  let x = this.parentNode.parentNode.parentNode.querySelector('.modal');
+  x.style.display = "none";
 }
 
-pup1.addEventListener("click", pupClicked1, false);
-pup2.addEventListener("click", pupClicked2, false);
-pup3.addEventListener("click", pupClicked3, false);
-pup4.addEventListener("click", pupClicked4, false);
+//close modal by clicking outside modal
+let modalBack = document.querySelectorAll('.cute .modal');
 
-let close1 = document.getElementById("cOne");
-let close2 = document.getElementById("cTwo");
-let close3 = document.getElementById("cThree");
-let close4 = document.getElementById("cFour");
-
-function pupClosed1(evt) {
-	let p = document.getElementById("mode1");
-	p.style.display = "none";
+for(let i=0; i < modalBack.length; i++){
+  modalBack[i].addEventListener("click", closeWindow, false);
 }
 
-function pupClosed2(evt) {
-	let p = document.getElementById("mode2");
-	p.style.display = "none";
+function closeWindow(evnt) {
+  let p = this.parentNode.querySelector('.modal');
+  p.style.display = "none";
+  console.log(evnt.target);
 }
 
-function pupClosed3(evt) {
-	let p = document.getElementById("mode3");
-	p.style.display = "none";
-}
+//close modal with esc key
+document.addEventListener("keydown", closeModal, false);
 
-function pupClosed4(evt) {
-	let p = document.getElementById("mode4");
-	p.style.display = "none";
-}
-
-close1.addEventListener("click", pupClosed1, false);
-close2.addEventListener("click", pupClosed2, false);
-close3.addEventListener("click", pupClosed3, false);
-close4.addEventListener("click", pupClosed4, false);
-
-let modal1 = document.getElementById("mode1");
-let modal2 = document.getElementById("mode2");
-let modal3 = document.getElementById("mode3");
-let modal4 = document.getElementById("mode4");
-
-window.onclick = function(event) {
-	if (event.target == modal1) {
-        modal1.style.display = "none";
+function closeModal(evnt){
+  if(evnt.keyCode == 27){
+  let close = document.querySelectorAll('.modal');
+  for(let i = 0; i < close.length; i++){
+    close[i].style.display = "none";
     }
-	if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-    if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
+  }
 }
 
-document.onkeydown = function(evt) {
-	evt = evt || window.event;
-if (evt.keyCode == 27) {
-	let p = document.getElementById("mode1");
-	p.style.display = "none";
-}
-if (evt.keyCode == 27) {
-	let p = document.getElementById("mode2");
-	p.style.display = "none";
-}
-if (evt.keyCode == 27) {
-	let p = document.getElementById("mode3");
-	p.style.display = "none";
-}
-if (evt.keyCode == 27) {
-	let p = document.getElementById("mode4");
-	p.style.display = "none";
-}
-};
-
+//toggle full screen
+//enter key starts full screen
+//space key exits full screen
 function toggleFullScreen() {
   if ((document.fullScreenElement && document.fullScreenElement !== null) || 
       (!document.mozFullScreen && !document.webkitIsFullScreen)) {              
@@ -119,14 +72,11 @@ function toggleFullScreen() {
   }
 }
 
-document.addEventListener("keydown", function(e) {
-  if (e.keyCode == 13) {
+document.addEventListener("keydown", function(evnt) {
+  if (evnt.keyCode == 13) {
     toggleFullScreen();
   }
-}, false);
-
-document.addEventListener("keydown", function(e) {
- if (e.keyCode == 32) {
+   if (evnt.keyCode == 32) {
     if (document.cancelFullScreen) {
       document.cancelFullScreen();
     } else if (document.mozCancelFullScreen) {

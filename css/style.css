@@ -1,3 +1,4 @@
+/* modal leyla novini 2016 */
 body {
 	background-image: url('../img/paw.jpg');
 	overflow: hidden;
@@ -14,15 +15,6 @@ header {
 	font-family: 'Chewy', cursive;
 }
 
-h1 {
-	font-size: 36px;
-}
-
-#main {
-	width: 100%;
-	height: 100%;
-}
-
 section {
 	font-family: 'Montserrat', sans-serif;
 	width: 100%;
@@ -35,10 +27,8 @@ section {
 	flex-flow: row nowrap;
 }
 
-.highlight {
-	margin: 0 auto;
-	margin-left: 15px;
-	margin-right: 10px;
+h1 {
+	font-size: 36px;
 }
 
 a {
@@ -48,6 +38,21 @@ a {
 
 p {
 	color: #332E3F;
+}
+
+span {
+	color: #FF0000;
+}
+
+#main {
+	width: 100%;
+	height: 100%;
+}
+
+.highlight {
+	margin: 0 auto;
+	margin-left: 15px;
+	margin-right: 10px;
 }
 
 .modal {
@@ -85,8 +90,4 @@ p {
 	margin-left: 15px;
 	display: flex;
 	flex-flow: column nowrap;
-}
-
-span {
-	color: #FF0000;
 }
