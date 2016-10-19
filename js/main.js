@@ -32,8 +32,9 @@ for(let i=0; i < modalBack.length; i++){
 
 function closeWindow(evnt) {
   let p = this.parentNode.querySelector('.modal');
-  p.style.display = "none";
-  console.log(evnt.target);
+  if(evnt.target == p) {
+    p.style.display = "none";
+  }
 }
 
 //close modal with esc key
